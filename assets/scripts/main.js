@@ -55,7 +55,7 @@ function initializeServiceWorker() {
       navigator.serviceWorker.register('./sw.js')
   // B4. TODO - Once the service worker has been successfully registered, console
   //            log that it was successful.
-        then((registration) => {
+        .then((registration) => {
           console.log('Service Worker registered successfully:', registration);
         })
   // B5. TODO - In the event that the service worker registration fails, console
@@ -81,7 +81,6 @@ async function getRecipes() {
   // A1. TODO - Check local storage to see if there are any recipes.
   //            If there are recipes, return them.
   const stored = localStorage.getItem('lab8-recipes');
-  localStorage.setItem('lab8-recipes', JSON.stringify(recipes));
 
   if (stored) {
     return JSON.parse(stored);
@@ -143,7 +142,7 @@ async function getRecipes() {
  * @param {Array<Object>} recipes An array of recipes
  */
 function saveRecipesToStorage(recipes) {
-  localStorage.setItem('recipes', JSON.stringify(recipes));
+  localStorage.setItem('lab8-recipes', JSON.stringify(recipes));
 }
 
 /**
