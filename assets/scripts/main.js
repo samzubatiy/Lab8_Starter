@@ -80,7 +80,9 @@ async function getRecipes() {
   // EXPOSE - START (All expose numbers start with A)
   // A1. TODO - Check local storage to see if there are any recipes.
   //            If there are recipes, return them.
-  const stored = localStorage.getItem('recipes');
+  const stored = localStorage.getItem('lab8-recipes');
+  localStorage.setItem('lab8-recipes', JSON.stringify(recipes));
+
   if (stored) {
     return JSON.parse(stored);
   }
